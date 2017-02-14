@@ -3,7 +3,7 @@ var wordMap = {
     'two': 'duey',
     'three': 'dee',
     'four': 'foosa',
-    'five': 'fife', /*multi-word not working */
+    'five': 'fife', /* multi-word not working */
     'six': 'seeks',
     'seven': 'sevin',
     'eight': 'ate-a',
@@ -22,8 +22,8 @@ var wordMap = {
 	'a lot': 'mui',
 	'mine': 'moole',
 	'thank you': 'tank yu',
-	'you': 'yousa',
 	'you are': 'yousa',
+	'you': 'yousa',
 	'did you': 'yousa',
 	'you\'re': 'yousa',
 	'money': 'mula',
