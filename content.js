@@ -112,9 +112,6 @@ var wordMap = {
 
 var regex = new RegExp('\\b(' + Object.keys(wordMap).join('|') + ')\\b', 'ig');
 
-console.log("regex: " + regex);
-
-// tree walker
 var treeWalker = document.createTreeWalker (
 	document.body,
 	NodeFilter.SHOW_TEXT,
@@ -122,7 +119,6 @@ var treeWalker = document.createTreeWalker (
 	false
 );
 
-// text nodes
 var textNodes = [];
 
 while (treeWalker.nextNode())
@@ -130,7 +126,6 @@ while (treeWalker.nextNode())
 	textNodes.push(treeWalker.currentNode);
 }
 
-// iterate text nodes and modify in place
 for (var i = 0, len = textNodes.length; i < len; i++) 
 {
     textNodes[i].nodeValue = textNodes[i].nodeValue.replace(regex, 
@@ -142,7 +137,7 @@ for (var i = 0, len = textNodes.length; i < len; i++)
 
     		if (match != match.toLowerCase())
     		{
-    			if (match == match.toLowerCase().charAt(0).toUpperCase())
+    			if (match == match.toLowerCase().charAt(0).toUpperCase() && match.length > 1)
     			{
     				replacementWord = replacementWord.charAt(0).toUpperCase() + replacementWord.slice(1);
     			}
@@ -151,8 +146,6 @@ for (var i = 0, len = textNodes.length; i < len; i++)
     				replacementWord = replacementWord.toUpperCase();
     			}
     		}
-
-    		console.log('replacing ' + match + ' with ' + replacementWord);
 			return replacementWord;
     	}
     );
