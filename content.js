@@ -107,6 +107,24 @@ var wordMap = {
 	'forest': 'logreena',
 	'fighting': 'crunchen',
 	'mistake': 'boopjak'
+	'afraid': 'fraid',
+	'anakin': 'annie',
+	'our':'are-sa',
+	'arrive': 'arriven',
+	'accident': 'axadent',
+	'accidents': 'axadentes',
+	'back': 'backin',
+	'bet': 'betchen',
+	'big': 'biggen',
+	'blame': 'blamen',
+	'blaming': 'blamen',
+	'but': 'boot',
+	'fire': 'opadda',
+	'overly': 'grossly',
+	'work': 'jobben',
+	'look': 'lookie',
+	'lovely': 'loverly',
+	'beautiful': 'loverly'
 
 };
 
