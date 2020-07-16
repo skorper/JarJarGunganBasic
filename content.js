@@ -138,25 +138,30 @@ while (treeWalker.nextNode())
 
 for (let i = 0, len = textNodes.length; i < len; i++)
 {
-    textNodes[i].nodeValue = textNodes[i].nodeValue.replace(regex, 
-    	function(match) 
-    	{
-            let replacementWord = wordMap[match.toLowerCase()];
+    textNodes[i].nodeValue = textNodes[i].nodeValue.replace(regex, replaceFunction)
+}
 
-    		/* match capitalization -- wordMap is all lowercase */
+function replaceFunction(match)
+{
+    let replacementWord = wordMap[match.toLowerCase()];
 
-    		if (match !== match.toLowerCase())
-    		{
-    			if (match === match.toLowerCase().charAt(0).toUpperCase() && match.length > 1)
-    			{
-    				replacementWord = replacementWord.charAt(0).toUpperCase() + replacementWord.slice(1);
-    			}
-    			else if (match === match.toUpperCase())
-    			{
-    				replacementWord = replacementWord.toUpperCase();
-    			}
-    		}
-			return replacementWord;
-    	}
-    );
+    /* match capitalization -- wordMap is all lowercase */
+
+    if (match === match.toLowerCase())
+    {
+        return replacementWord;
+    }
+
+    let titleCase = match.charAt(0).toUpperCase() + match.slice(1);
+
+    if (match === titleCase)
+    {
+        replacementWord = replacementWord.charAt(0).toUpperCase() + replacementWord.slice(1);
+    }
+    else if (match === match.toUpperCase() && match.length > 1)
+    {
+        replacementWord = replacementWord.toUpperCase();
+    }
+
+    return replacementWord;
 }
