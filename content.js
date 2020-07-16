@@ -120,38 +120,38 @@ const wordMap = {
     'beautiful': 'loverly'
 };
 
-var regex = new RegExp('\\b(' + Object.keys(wordMap).join('|') + ')\\b', 'ig');
+let regex = new RegExp('\\b(' + Object.keys(wordMap).join('|') + ')\\b', 'ig');
 
-var treeWalker = document.createTreeWalker (
+let treeWalker = document.createTreeWalker (
     document.body,
     NodeFilter.SHOW_TEXT,
     null,
     false
 );
 
-var textNodes = [];
+let textNodes = [];
 
 while (treeWalker.nextNode())
 {
     textNodes.push(treeWalker.currentNode);
 }
 
-for (var i = 0, len = textNodes.length; i < len; i++) 
+for (let i = 0, len = textNodes.length; i < len; i++)
 {
     textNodes[i].nodeValue = textNodes[i].nodeValue.replace(regex, 
     	function(match) 
     	{
-            var replacementWord = wordMap[match.toLowerCase()];
+            let replacementWord = wordMap[match.toLowerCase()];
 
     		/* match capitalization -- wordMap is all lowercase */
 
-    		if (match != match.toLowerCase())
+    		if (match !== match.toLowerCase())
     		{
-    			if (match == match.toLowerCase().charAt(0).toUpperCase() && match.length > 1)
+    			if (match === match.toLowerCase().charAt(0).toUpperCase() && match.length > 1)
     			{
     				replacementWord = replacementWord.charAt(0).toUpperCase() + replacementWord.slice(1);
     			}
-    			else if (match == match.toUpperCase())
+    			else if (match === match.toUpperCase())
     			{
     				replacementWord = replacementWord.toUpperCase();
     			}
